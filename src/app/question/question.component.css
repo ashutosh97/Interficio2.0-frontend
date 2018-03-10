@@ -1,0 +1,100 @@
+.text {
+   color: #333;
+    font-size: 22px;
+    text-align: center;
+    font-family: 'MyWebFont';
+    margin-right: 98px;
+}
+
+.story-text {
+  color: #333;
+  font-size: 22px;
+  text-align: center;
+  font-family: 'MyWebFont';
+  position: relative;
+  left: 3px;
+  top: 5px;
+}
+@font-face {
+  font-family: 'Game of Thrones';
+  src:  url('src/assets/skins/lightgray/fonts/got.ttf');
+}
+
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('src/assets/skins/lightgray/fonts/heading.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'title';
+  src:  url('src/assets/skins/lightgray/fonts/duetch.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'QuesFont';
+  src:  url('src/assets/skins/lightgray/fonts/BLKCHCRY.woff') format('woff');
+}
+
+.title {
+    font-family: 'QuesFont', Fallback, sans-serif;
+    text-align: center;
+    font-size: 45px;
+    color: white;
+    letter-spacing: 2px;
+    background-color: rgba(128, 128, 128, 0.57);
+    /*margin-left: 35%;*/
+    display: inline;
+}
+
+.desc {
+    font-family: 'Game of Thrones';
+    font-size: 25px;
+}
+
+.buttn {
+    font-family: 'Game of Thrones';
+    color: white;
+}
+
+.card {
+    background-color: rgba(204, 204, 204, 0.4);
+} 
+
+.hint {
+  font-size:18px;
+  letter-spacing: 2px;
+  font-family: 'Game of Thrones';
+  color:white;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.header {
+   background-image: url("src/assets/img/quesback.jpg"); 
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.name {
+  font-family: 'Game of Thrones';
+  color: white;
+  font-size: 18px;
+  letter-spacing: 2px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  text-align: center;
+  animation: 
+    typing 4s steps(50, end),
+    blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+
+
+
