@@ -18,41 +18,43 @@ var QuestionComponent = /** @class */ (function () {
         this.router = router;
         this.questionService = questionService;
         this.route = route;
-        this.setObj = {};
+        this.notice = false;
         this.questionObj = [];
         this.verify = true;
         this.storyVerify = true;
+        this.isDisabled = false;
+        this.hint = false;
+        this.submit = false;
     }
     QuestionComponent.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    /*ngOnInit() {
-  
-      this.token = localStorage.getItem('token');
-       if(!this.token) {
-       this.router.navigate(['login']);
+    QuestionComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.token = localStorage.getItem('token');
+        if (!this.token) {
+            this.router.navigate(['login']);
         }
-  
-      this.route.params.subscribe(params => {
-         this.user_id = params['id']; // (+) converts string 'id' to a number
-         console.log('user-idddd',this.user_id);
-      });
-      // we will send user_id to find the current set no nd then fetch set and respective ques.
-      this.questionService.fetchSet(this.user_id)
-        .then( data=> {
-          this.setObj = data;
-          console.log(this.setObj);
-          this.questionService.fetchQuestion(this.setObj.id)
-          .then( data=> {
-            this.questionObj = data;
-             console.log(this.questionObj);
-          })
+        this.route.params.subscribe(function (params) {
+            _this.user_id = params['id']; // (+) converts string 'id' to a number
+            console.log('user-idddd', _this.user_id);
+        });
+        // we will send user_id to find the current set no nd then fetch set and respective ques.
+        this.questionService.fetchSet(this.user_id)
+            .then(function (data) {
+            _this.setObj = data;
+            if (_this.setObj.id == '6')
+                _this.notice = true;
+            _this.questionService.fetchQuestion(_this.setObj.id)
+                .then(function (data) {
+                _this.questionObj = data;
+                console.log(_this.questionObj);
+            });
         })
-        .catch( this.handleError );
-  
-      // this._flashMessagesService.show('We are in about component!', { timeout: 1000 });
-    }*/
+            .catch(this.handleError);
+        // this._flashMessagesService.show('We are in about component!', { timeout: 1000 });
+    };
     QuestionComponent.prototype.onAnswerSubmit = function (form_data, id) {
         var _this = this;
         this.question_id = id;
@@ -62,7 +64,13 @@ var QuestionComponent = /** @class */ (function () {
             .then(function (data) {
             if (data.verified) {
                 _this.verify = true;
-                window.open(data.url);
+                console.log('urlll', data.url);
+                if (data.url !== '')
+                    window.open(data.url);
+                else {
+                    console.log('asdfwerasdf');
+                    _this.hint = true;
+                }
             }
             else {
                 _this.verify = false;
@@ -77,6 +85,10 @@ var QuestionComponent = /** @class */ (function () {
     };
     QuestionComponent.prototype.onStorySubmit = function (form_data, id) {
         var _this = this;
+        this.submit = true;
+        setTimeout(function () {
+            this.submit = false;
+        }.bind(this), 2000);
         form_data.id = id;
         form_data.user_id = this.user_id;
         form_data.date = Date.now();
@@ -95,6 +107,13 @@ var QuestionComponent = /** @class */ (function () {
             }
         })
             .catch(this.handleError);
+    };
+    QuestionComponent.prototype.disablebutton = function () {
+        console.log('asdf');
+        this.isDisabled = true;
+        setTimeout(function () {
+            this.isDisabled = false;
+        }.bind(this), 2000);
     };
     QuestionComponent = __decorate([
         core_1.Component({

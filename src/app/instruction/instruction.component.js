@@ -15,6 +15,12 @@ var InstructionComponent = /** @class */ (function () {
     function InstructionComponent(router) {
         this.router = router;
     }
+    InstructionComponent.prototype.ngOnInit = function () {
+        this.token = localStorage.getItem('token');
+        if (!this.token) {
+            this.router.navigate(['login']);
+        }
+    };
     InstructionComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

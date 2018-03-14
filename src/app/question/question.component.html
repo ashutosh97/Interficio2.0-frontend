@@ -1,4 +1,4 @@
-<div class = "header">
+<!-- <div class = "header">
 <div layout="row" layout-align="center center">
   <div  [innerHTML] = "setObj.title" class = "title"></div>
 </div>
@@ -6,10 +6,10 @@
   <md-card-content>
     <p class= "desc" [innerHTML] = "setObj.description"></p> <br>
     <form #storyForm="ngForm" (ngSubmit)="onStorySubmit(storyForm.value, setObj.id)">
-      <md-input class="buttn" placeholder="Answer" name="answer" type = "text" style="width: 100%" required ngModel></md-input>
+      <md-input  placeholder="Answer" name="answer" type = "text" style="width: 100%" required ngModel></md-input>
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
         <button class="buttn" md-raised-button color = "accent" style = "background-color: black;"> Submit </button>
-        <!--<button md-raised-button color="warn" style = "margin-left: 10px;"> Hint </button> -->
+        <button md-raised-button color="warn" style = "margin-left: 10px;"> Hint </button> 
       </section>
         <p *ngIf = '!storyVerify' class = "story-text" style = "margin-top: 3px;"> Wrong answer </p>
     </form>
@@ -24,12 +24,59 @@
     <form #questionForm="ngForm" (ngSubmit)="onAnswerSubmit(questionForm.value, question.id)">
       <div layout = "row" layout-align="center center">
         <md-input placeholder="Answer" name="answer" type = "text" style="width: 20%" required ngModel></md-input>
-          <button md-raised-button color = "accent" style = "background-color: black;margin-left: 20px;"> Submit </button>
+          <button class="buttn" md-raised-button color = "accent" style = "background-color: black;margin-left: 20px;"> Submit </button>
       </div>
       <p *ngIf = 'question.id == question_id && !verify' class = "text"> Wrong answer </p>
     </form>
   </md-card-content>
 </md-card>
+</div> -->
+
+
+
+
+
+<div *ngIf = 'notice' style = "font-family:Game Of Thrones;font-size:30px;color:white" > wait for the updates </div>
+
+<div class = "header" *ngIf = '!notice'> 
+<div layout="row" layout-align="center center">
+  <div  [innerHTML] = "setObj?.title" class = "title"></div>
+</div>
+
+<md-card class = "card" style = "width:82%;margin-left: 9%;margin-top:3%">
+  <md-card-content>
+    <p class= "desc" [innerHTML] = "setObj?.description"></p> <br>
+    <form #storyForm="ngForm" (ngSubmit)="onStorySubmit(storyForm.value, setObj.id)">
+      <md-input placeholder="Answer" name="answer" type = "text" style="width: 100%; color: black;" required ngModel></md-input>
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <button class="buttn" type="submit" md-raised-button color = "accent" style = "background-color: black;"  
+      [disabled] = 'submit'>  Submit </button>
+        <!--<button md-raised-button color="warn" style = "margin-left: 10px;"> Hint </button> -->
+      </section>
+        <p *ngIf = '!storyVerify' class = "story-text" style = "margin-top: 3px;"> Wrong answer </p>
+    </form>
+ </md-card-content>
+</md-card>
+  
+
+<p class = "name"> CLUES : </p>
+ 
+<md-card *ngFor = "let question of questionObj" class = "card" style = "margin-top:15px;width:90%;margin-left: 3%;">
+  <md-card-content>
+    <p class = "desc" id="quess" [innerHTML] = "question.description"></p>
+    <form #questionForm="ngForm" (ngSubmit)="onAnswerSubmit(questionForm.value, question.id)">
+      <div layout = "row" layout-align="center center">
+        <md-input placeholder="Answer" name="answer" type = "text" style="width: 20%" required ngModel></md-input>
+          <button class="buttn" md-raised-button color = "accent" style = "background-color: black;margin-left: 20px;"> Submit </button>
+      </div>
+       <p style="font-family: Game Of Thrones;" *ngIf = 'hint && question.id == question_id' > Unlock more hints </p>
+      <p style = "align-content: center;" *ngIf = 'question.id == question_id && !verify' class = "text"> Wrong answer </p>
+       <!-- <p *ngIf = 'question.id == question_id && verify' class = "text"> Solve further </p> -->
+    </form>
+  </md-card-content>
+
+</md-card>
+<p align="center" style="color: white" class="gnu">Made with ❤ by <a href="http://nitdgplug.org/" target="_blank">GNU/Linux Users' Group</a></p>
 </div>
 
 
@@ -38,4 +85,6 @@
 
 
 
+
+ 
 

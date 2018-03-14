@@ -32,7 +32,7 @@ export class QuestionService {
 
   fetchQuestion(set_id): Promise<any> {
     return this.http
-    .get(this.getQuestionUrl+ '?set_id_=' + set_id , {headers: this.headers})
+    .get(this.getQuestionUrl+ '?set_id=' + set_id , {headers: this.headers})
     .toPromise()
     .then(res => res.json())
     .catch(this.handleError);

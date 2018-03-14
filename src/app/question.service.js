@@ -37,7 +37,7 @@ var QuestionService = /** @class */ (function () {
     };
     QuestionService.prototype.fetchQuestion = function (set_id) {
         return this.http
-            .get(this.getQuestionUrl + '?set_id_=' + set_id, { headers: this.headers })
+            .get(this.getQuestionUrl + '?set_id=' + set_id, { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.handleError);

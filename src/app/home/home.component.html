@@ -13,14 +13,14 @@
   </div>
 -->
 
-<md-sidenav-layout style = "height:100%;">
-  <md-sidenav #sidenav mode="side" [opened]="true" class="app-sidenav sidebar">
+<!-- <md-sidenav-layout style = "height:100%;">
+  <md-sidenav #sidenav mode="side" [opened]="false" class="app-sidenav sidebar">
     <md-list>
       <md-list-item class="avatar-list">
         <img style="margin-top: 80px" src="src/assets/img/AavishkarLogo.jpg" class="md-avatar main-avatar" alt="User Name"/>
       </md-list-item>
       <md-list-item >
-        <strong class="header">  {{name}} </strong>
+        <strong class="header" style = "font-family: 'Game of Thrones'">  {{name}} </strong>
       </md-list-item>
       </md-list>
       <md-list style="cursor:pointer">
@@ -45,9 +45,9 @@
       <i class="material-icons app-toolbar-menu">menu</i>
     </button>
      <div> {{ header }} </div>
-     <!--<div class="log-out" (click) = "logout()"> Logout </div>-->
+     <div class="log-out" (click) = "logout()"> Logout </div>
 
-    <span class="app-toolbar-filler"></span>
+     <span class="app-toolbar-filler"></span>
   </md-toolbar>
   <div class="app-content app">
     <router-outlet>
@@ -56,5 +56,53 @@
   </div>
 
 
-</md-sidenav-layout>
+</md-sidenav-layout> --> 
+
+
+
+​<div class = "row" style="background-color: #000000;margin-left:0!important;margin-right:0!important;">
+<div id = "sidenav" class="col-sm-3" style="padding-bottom: 28%;background-color: black">
+    <md-list>
+      <md-list-item class="avatar-list">
+        <img style="margin-top: 80px; margin-left: 20px" src="src/assets/img/AavishkarLogo.jpg" class="md-avatar main-avatar" alt="User Name"/>
+      </md-list-item>
+      <md-list-item>
+        <strong class="header">  {{name}} </strong>
+      </md-list-item>
+      </md-list>
+      <md-list style="cursor:pointer">
+      <md-divider></md-divider>
+      <md-list-item (click) = "text(1)" >
+        <div class="list-color" routerLink="instruction"> Instruction </div> 
+      </md-list-item>
+      <md-list-item (click) = "text(2)" >
+        <div class="list-color"> Questions </div>
+      </md-list-item>
+      <md-list-item (click) = "text(3)" >
+        <div class="list-color" routerLink="leaderboard"> Leaderboard  </div>
+      </md-list-item>
+       <md-list-item >
+          <div class="list-color" (click) = "logout()"> Logout </div>
+      </md-list-item>
+      </md-list>
+ </div>
+​ 
+
+
+ <div class="main col-sm-9">
+  <md-toolbar class="list-color" color="primary" style = "background-color:black" >
+     <div> {{ header }} </div>
+     <!--<div class="log-out" (click) = "logout()"> Logout </div>-->
+
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+  <div class="app-content app" >
+ 
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+  </div>
+</div>
 

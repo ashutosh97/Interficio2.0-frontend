@@ -22,16 +22,23 @@ font-size: 17px;
 padding: 15px;
 }
 th {
-  font-size: 18px;
+  font-size: 15px;
+  text-align: center;
 }
 
 .data {
     font-size: 17px;
-    padding: 8px;
+    text-align: center;
 }
 
+.tble{
+  font-family: 'Game of Thrones';
+}
+
+
+
 .background {
-background-color: black;
+background-color: #FAEBD7;
 background-size: 100vw 100vh;
 background-attachment: fixed;
 overflow: hidden;
@@ -41,4 +48,13 @@ display: block;
 .text-center{
   font-family: 'Game of Thrones';
   font-size: 15px;
+}
+
+.gnu {
+  font-family: 'Game of Thrones';
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+  margin-top: 20px;
 }

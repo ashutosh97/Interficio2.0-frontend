@@ -22,16 +22,20 @@ export class QuestionComponent implements OnInit {
     private questionService: QuestionService,
     private route: ActivatedRoute
   ) {}
-
-  private setObj = {};
+  
+  private notice = false; 
+  private setObj;
   private questionObj = [];
   private verify = true;
   private question_id;
   private storyVerify = true;
   private user_id;
   private token;
+  private isDisabled = false;
+  private hint = false;
+  private submit = false;
 
-  /*ngOnInit() {
+  ngOnInit() {
 
     this.token = localStorage.getItem('token');
      if(!this.token) {
@@ -46,7 +50,8 @@ export class QuestionComponent implements OnInit {
     this.questionService.fetchSet(this.user_id)
       .then( data=> {
         this.setObj = data;
-        console.log(this.setObj);
+        if(this.setObj.id == '6') 
+          this.notice = true;
         this.questionService.fetchQuestion(this.setObj.id)
         .then( data=> {
           this.questionObj = data;
@@ -56,7 +61,7 @@ export class QuestionComponent implements OnInit {
       .catch( this.handleError );
 
     // this._flashMessagesService.show('We are in about component!', { timeout: 1000 });
-  }*/
+  }
  
   onAnswerSubmit(form_data, id) {
     this.question_id = id;
@@ -66,7 +71,13 @@ export class QuestionComponent implements OnInit {
       .then( data=> {
         if(data.verified) {
           this.verify = true;
+          console.log('urlll',data.url)
+          if(data.url !== '')
           window.open(data.url);
+          else {
+            console.log('asdfwerasdf');
+            this.hint = true;
+          }
         } else {
           this.verify = false;
    //wait 3 Seconds and hide
@@ -80,6 +91,10 @@ export class QuestionComponent implements OnInit {
   }
 
   onStorySubmit(form_data, id) {
+    this.submit = true;
+    setTimeout(function() {
+      this.submit = false;
+    }.bind(this), 2000);
     form_data.id = id;
     form_data.user_id = this.user_id;
     form_data.date = Date.now();
@@ -99,5 +114,16 @@ export class QuestionComponent implements OnInit {
       .catch( this.handleError );
   }
 
+  disablebutton() {
+   console.log('asdf');
+   this.isDisabled = true;
+     setTimeout(function() {
+     this.isDisabled = false;
+     }.bind(this), 2000);
+  }
+
 }
+
+
+
 

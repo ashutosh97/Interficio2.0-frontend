@@ -1,3 +1,32 @@
+@media screen and (max-width: 600px){
+  /*#clip{
+    width: 300px!important;
+    height: 300px!important;
+  }
+  #arm {
+    width: 85px!important;
+    height: 110px!important;
+  }*/
+  #clip {
+    width: 300px!important;
+    height: 300px!important;
+  }
+  #clip #block {
+    width: 250px!important;
+    height: 250px!important;
+  }
+  #arm {
+    width: 170px!important;
+    height: 110px!important;
+    /*margin-left: -40px!important;*/
+  }
+  #wrist{
+    bottom: 110px!important;
+  }
+  #hand-container{
+    margin-bottom: -110px!important;
+  }
+}
 body {
   background: #D8C0A9;
 }
@@ -286,9 +315,6 @@ body {
 
 
 
-
-
-
 /* ----- Line of text ------ */
 p,
 a {
@@ -299,4 +325,16 @@ a {
   text-decoration: none;
   font-size: 10px;
   margin-top: 40px;
+}
+
+
+.name1 {
+  font-family: 'Game of Thrones';
+  color: black;
+  font-size: 14px;
+  letter-spacing: 1px;
+  overflow: hidden; 
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 10px;
 }

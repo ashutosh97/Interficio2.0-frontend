@@ -1,4 +1,4 @@
-.image { 
+/*.image { 
   background-image: url("src/assets/img/login.jpg"); 
   background-attachment: fixed;
   background-size: cover;
@@ -9,6 +9,52 @@
   src:  url('src/assets/skins/lightgray/fonts/got.ttf');
 }
 
+.name {
+  font-family: 'Game of Thrones';
+  color: white;
+  font-size: 55px;
+  letter-spacing: 10px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  animation: 
+    typing 4s steps(50, end),
+    blink-caret 1s step-end infinite;
+}
+
+.tag {
+    font-size: 32px;
+    letter-spacing: 1px;
+    font-family: 'QuesFont';
+    font-style: italic;
+    color: rgb(221,75,57);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}*/
+
+
+.image { 
+  background-image: url("src/assets/img/login.jpg"); 
+  background-attachment: fixed;
+  background-size: cover;
+} 
+
+@font-face {
+  font-family: 'Game of Thrones';
+  src:  url('src/assets/skins/lightgray/fonts/got.ttf');
+}
+@media screen and (max-width: 600px)
+{
+  .name{
+    font-size: 20px!important;
+  }
+  .tag{
+    font-size: 20px!important;
+  }
+}
 .name {
   font-family: 'Game of Thrones';
   color: white;
